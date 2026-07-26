@@ -1,0 +1,151 @@
+To Run Frontend 
+At the Directory root
+>npm create vite@latest
+    ->Project Name : frontend
+    ->Framework - React
+    ->Variant : Javascript
+    ->ESLint
+    ->Install npm and start or >cd Frontend
+                               >npm i
+                               >npm run build
+                               >npm run dev
+
+
+To install CSS:
+>cd frontend
+>npm install -D tailwindcss postcss autoprefixer @tailwindcss/postcss
+
+(But Actually refer tailwind official Documentation - Installation For Vite)
+
+add "import tailwindcss from '@tailwindcss/vite'" in vite.config.js
+add tailwindcss(), in the pugins array of vite.config.js
+add "@import "tailwindcss";" at the top in App.css
+
+🔹 Step 2: Create config files
+Manually create these at the root of frontend:
+
+tailwind.config.js
+
+  /** @type {import('tailwindcss').Config} */
+  export default {
+    content: [
+      "./index.html",
+      "./src/**/*.{js,jsx,ts,tsx}",   // scan React files
+    ],
+    theme: {
+      extend: {},//Here u can extend the theme for writing the custom Tailwind coptions and use the same in your .jsx/.tsx, etc. files.
+    },
+    plugins: [],
+  }
+
+postcss.config.js
+
+  export default {
+    plugins: {
+      "@tailwindcss/postcss": {},   // new plugin for Tailwind v4
+      autoprefixer: {},
+    },
+  }
+
+🔹 Step 3: Wire Tailwind into CSS
+At the very top of frontend/src/index.css:(as well at App.css)
+
+css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+( u can either comment out the existing lines in index.css and App.css or retain them)
+
+
+>npm run dev
+
+For Verification replace <h1> Get Started </h1> with :
+ <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1>
+
+  in App.jsx 
+  then Crtl+S
+  Observe the Difference in Browser using the link provided in terminal when "npm run dev" command was executed.
+(If u still find errors then refer package.json file of this repo to install the required dependencies)
+
+>cd frontend
+>npm i react-router-dom [To make our applications SPA(Single Page Application) where once the code changed and saved the webpage automatically refereshs avoiding the manual refreshing of page repeatedly whenever the new change is made to project and saved. ]
+
+>npm i axios react-icons
+Axios is for sending the Http Requests
+React icons - To get the react icons
+
+Loading State is Developed to improve the User Experience.
+
+"max-md:hidden"- this will make the Column hidden in Mobiles and Tabs ie screen of lower sizes than Standard Screen.
+
+In React : 
+useState() has two components - variable , function to update the variable.
+This is the only way you can update the variables in React.
+
+Example to Illustrate
+
+function Demo() {
+  let plainVar = 0;                  // plain variable
+  const [stateVar, setStateVar] = useState(0); // state variable
+
+  return (
+    <div>
+      <p>Plain variable: {plainVar}</p>
+      <p>State variable: {stateVar}</p>
+
+      <button onClick={() => { plainVar++; }}>Increment Plain</button>
+      <button onClick={() => setStateVar(stateVar + 1)}>Increment State</button>
+    </div>
+  );
+}
+Clicking Increment Plain won’t update the UI — because React doesn’t know the variable changed.
+Clicking Increment State updates the UI — because React re-renders when state changes.
+
+Virtual DOM(Explantion):
+Actual DOM
+The DOM is the browser’s live tree of nodes representing your HTML.
+
+When you change something (like document.getElementById(...).textContent = "new text"), the browser updates the DOM and re-renders that part of the page.
+
+Problem: Direct DOM updates are relatively slow if you do them often, especially in large apps, because the browser has to recalculate styles, layouts, and repaint.
+
+🪞 Virtual DOM
+The Virtual DOM is a lightweight copy of the real DOM that React keeps in memory.
+
+When your component’s state changes:
+
+React updates the Virtual DOM first.
+
+React compares the new Virtual DOM with the previous one (this process is called diffing).
+
+React finds the minimal set of changes needed.
+
+React applies only those changes to the real DOM.
+
+👉 This makes updates faster and more efficient, because React avoids touching parts of the DOM that didn’t change.
+To avoid ambiguity and components mismatch we use "key={book._id} " in BookSingleCard.jsx.
+
+Doubt: useEffect() , useMemo()
+
+>npm i notistack 
+//notistack is used to improve the UI.
+
+From BookModal.jsx we need to continue.
+link : https://www.youtube.com/watch?v=-42K44A1oMA&t=3569s
+
+The Flow throughout this FUll Stack Project 
+ User -> Frontend - > App.jsx -> <Route path="" /> -> Respective Component -> Respective Endoint in Backend using axios -> Backend Services -> MongoDb .
+ The same process in reverse is followed to return the response to User.
+
+
+z-index controls the stacking order of elements on a web page.
+
+Think of your page as having layers (like sheets of paper stacked on top of each other).
+
+Elements with a higher z-index value appear in front of elements with a lower value.
+
+event.stopPropagation() is used to avoid the invoking of parents' events when an event inside the child is invoked.
+Commonly used in Dropdowns,Modals , etc.
