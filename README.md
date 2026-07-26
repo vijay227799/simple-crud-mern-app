@@ -1,0 +1,2 @@
+Developed a MERN Stack application for managing a collection of books. Implemented backend using Node.js, Express, and MongoDB for CRUD operations. Created frontend using React with Tailwind CSS for responsive design. Integrated API endpoints to fetch, create, update, and delete book records. Added routing and state management for seamless user experience.
+Reference Youtube Video Link: https://www.youtube.com/watch?v=-42K44A1oMA
