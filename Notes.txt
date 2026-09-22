@@ -133,7 +133,7 @@ Doubt: useEffect() , useMemo()
 >npm i notistack 
 //notistack is used to improve the UI.
 
-From BookModal.jsx we need to continue.
+
 link : https://www.youtube.com/watch?v=-42K44A1oMA&t=3569s
 
 The Flow throughout this FUll Stack Project 
