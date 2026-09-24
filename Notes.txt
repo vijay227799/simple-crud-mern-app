@@ -128,7 +128,9 @@ React applies only those changes to the real DOM.
 👉 This makes updates faster and more efficient, because React avoids touching parts of the DOM that didn’t change.
 To avoid ambiguity and components mismatch we use "key={book._id} " in BookSingleCard.jsx.
 
-Doubt: useEffect() , useMemo()
+Doubt: 
+    useEffect() - you can see 'DashBoard.tsx' of 'Final_Year_Internship' Repo for Explanation.
+    useMemo()
 
 >npm i notistack 
 //notistack is used to improve the UI.
